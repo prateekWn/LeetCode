@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int countNegatives(vector<vector<int>>& grid) {
+        
+        int count = 0;
+        
+        for(int i=0; i<grid.size(); i++){
+            
+            for(int j = 0; j<grid[i].size(); j++){
+                
+                if(grid[i][j]<0)
+                    count++;
+            }
+        }
+        
+        return count;
+    }
+};
+
+int main(){
+	
+	int n = 4;
+
+	vector<vector<int>>v;
+
+
+
+	for(int i = 0; i<4; i++){
+        vector<int> v1;
+		for(int j = 0; j<4; j++){
+			int k;
+			cin>>k;
+			v1.push_back(k);
+		}
+		v.push_back(v1);
+	}
+
+	//for(int i = 0; i<4; i++){
+	//  for(int j = 0; j<4; j++){
+	//		cout<<v[i][j]<<"	";
+	//	}
+	//	cout<<endl;
+	//}
+
+	// v = [[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]];
+	Solution s;
+
+	int x = s.countNegatives(v);
+
+	cout<<x<<endl;
+
+	return 0;	
+}
