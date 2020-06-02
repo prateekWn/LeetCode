@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        
+        long fMax = LONG_MIN, sMax = LONG_MIN, tMax = LONG_MIN;
+        
+        for(int i = 0; i<nums.size(); i++){
+            
+            if(nums[i]>fMax){
+                tMax = sMax;
+                sMax = fMax;
+                fMax = nums[i];
+            }
+            if(nums[i]>sMax && nums[i]<fMax){
+                tMax = sMax;
+                sMax = nums[i];
+            }
+            if(nums[i]>tMax && nums[i]<sMax){
+                tMax = nums[i];
+            }           
+            
+        }
+        
+        if(tMax==LONG_MIN){
+                tMax = fMax;
+            }
+        
+        return tMax;
+    }
+};
+
+int main(){
+
+	vector<int> v;
+
+	v.push_back(3);
+	v.push_back(2);
+	v.push_back(1);
+
+	// for(int i = 0; i<v.size(); i++){
+	// 	cout<<v[i]<<"	";
+	// }
+
+	// cout<<endl;
+
+	Solution s;
+
+	int x = s.thirdMax(v);
+
+	cout<<x<<endl;
+
+	return 0;
+	
+}
