@@ -1,0 +1,61 @@
+//how-many-numbers-are-smaller-than-the-current-number
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        
+        // sort(nums.begin(), nums.end());
+        
+        vector<int> v;
+        
+        for(int i=0; i<nums.size(); i++){
+            
+            int count = 0;
+            
+            for(int j = 0; j<nums.size(); j++){
+                
+                if(nums[i]>nums[j])
+                    count++;
+        
+                if(nums[i]==nums[j])
+                    continue;
+            }
+            
+            v.push_back(count);
+            
+        }
+        return v;
+    }
+};
+
+int main(){
+
+	vector<int> v;
+
+	int n;
+
+	cin>>n;
+
+	for(int i=0; i<n; i++){
+
+		int x;
+
+		cin>>x;
+
+		v.push_back(x);
+	}
+
+	Solution s;
+
+	vector<int> v1 = s.smallerNumbersThanCurrent(v);
+
+	for(int i = 0; i<v1.size(); i++){
+		cout<<v1[i]<<"	";
+	}
+
+	cout<<endl;
+
+	return 0;
+}
