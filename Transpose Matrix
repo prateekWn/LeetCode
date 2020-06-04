@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector<vector<int>> transpose(vector<vector<int>>& A) {
+
+        vector<vector<int> > v(A[0].size(), vector<int>());
+
+        if (A.size() == 0)
+        return v;
+    
+        
+        for (int i = 0; i < A.size(); i++)
+        {
+            for (int j = 0; j < A[i].size(); j++)
+            {
+                v[j].push_back(A[i][j]);
+            }
+        }
+        
+        return v;
+    
+    }
+};
+
+int main(){
+
+	vector<vector<int>> v1;
+
+	int n = 3;
+
+	for(int i=0; i<n; i++){
+		vector<int> v;
+		for(int j=0; j<n; j++){
+			int k;
+			cin>>k;
+			v.push_back(k);
+		}
+		v1.push_back(v);
+	}
+
+	Solution s;
+
+	vector<vector<int>> t = s.transpose(v1);
+
+	for(int i =0; i<t.size(); i++){
+		for(int j=0; j<t[i].size(); j++){
+			cout<<t[i][j]<<"	";
+		}
+		cout<<endl;
+	}
+	return 0;
+}
