@@ -1,0 +1,71 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int findPairs(vector<int>& nums, int k) {
+        
+        if(nums.size()==0){
+            
+            return 0;
+        
+        }
+        
+        int count=0;
+        
+        long long int temp1=INT_MIN , temp2=INT_MIN ;
+        
+        sort(nums.begin() , nums.end());
+        
+        for(int i=0; i<nums.size()-1; i++){
+            
+            for(int j=i+1; j<nums.size(); j++){
+                
+                long long int x = nums[j] - nums[i];
+                
+                    if(k==x){
+                        
+                        if(temp1!=nums[i] && temp2!=nums[j]){
+                            
+                            count++;
+                            
+                            temp1 = nums[i];
+                            
+                            temp2 = nums[j];
+                            
+                            cout<<temp1<<temp2<<endl;
+                       
+                        }
+                    
+                    }
+                            
+            }
+            
+        }
+        
+        return count;
+        
+    }
+    
+};
+int main(int argc, char const *argv[])
+{
+	int n,k;
+
+	cin>>n>>k;
+	vector<int>v;
+	
+	for(int i=0; i<n; i++){
+		int x;
+		cin>>x;
+		v.push_back(x);
+	}
+
+	Solution s;
+
+	int t = s.findPairs(v, k);
+
+	cout<<t<<endl;
+
+	return 0;
+}
