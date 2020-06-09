@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int subtractProductAndSum(int n) {
+        
+        int sum = 0, mul = 1;
+        
+        while(n>0){
+            
+            int x = n%10;
+            sum += x;
+            mul *= x;
+            n = n/10;
+        }
+        
+        return (mul-sum);
+    }
+};
+
+int main(){
+    
+    int n;
+
+    cin>>n;
+
+    Solution s;
+
+    int result = s.subtractProductAndSum(n);
+
+    cout<<result<<endl;
+
+    return 0;
+}
