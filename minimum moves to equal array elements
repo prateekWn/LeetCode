@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int minMoves(vector<int>& nums) {
+        
+        long long s = 0 , m = LONG_MAX;
+        
+        for(int i=0; i<nums.size() ; i++){
+            
+            s += nums[i];
+            
+            if(m>nums[i])
+                m=nums[i];
+            
+        }
+        
+        return s - nums.size()*m;
+    }
+};
+
+int main(){
+	
+	int n;
+	cin>>n;
+
+	vector<int>v;
+
+	for(int i=0; i<n; i++){
+		int x;
+		cin>>x;
+		v.push_back(x);
+	}
+
+	Solution s;
+
+	int r = s.minMoves(v);
+
+	cout<<r<<endl;
+
+	return 0;
+}
