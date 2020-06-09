@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int minMoves2(vector<int>& nums) {
+        
+        sort(nums.begin(), nums.end());
+        int lo = 0, hi = nums.size() - 1 , count = 0;
+        while(lo < hi)
+        {
+            count += nums[hi] - nums[lo];
+            lo++;
+            hi--;
+        }
+        return count;
+    }
+};
+
+int main(){
+	
+	int n;
+
+	cin>>n;
+
+	vector<int>v;
+
+	for(int i=0; i<n; i++){
+		int x;
+		cin>>x;
+		v.push_back(x);
+	}
+
+	Solution s;
+
+	int x = s.minMoves2(v);
+
+	cout<<x<<endl;
+}
