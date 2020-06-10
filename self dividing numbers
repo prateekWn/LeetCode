@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    
+    int dividing(int x, int left){
+        
+        if(x>0 &&  left%x == 0 )
+            return 1;
+        else
+            return 0;
+    }
+    
+    vector<int> selfDividingNumbers(int left, int right) {
+        
+        
+        vector<int> v;
+            int x;
+        
+        
+        for(int i=left; i<=right; i++){
+            
+            int flag = 1;
+            int temp = i;
+            
+            while(temp){
+                
+                x = temp%10;
+                
+                if(x==0){
+                    flag=0;
+                    break;
+                }
+                
+                if(dividing(x,i)!=1){
+                    flag=0;
+                }
+                    
+                temp = temp/10;
+                
+            }
+            
+            if(flag==1)
+                v.push_back(i);
+            
+        }
+                
+        return v;
+    }  
+    
+};
+int main(int argc, char const *argv[])
+{
+    int n,m;
+    
+    cin>>n>>m;
+    
+    Solution s;
+
+    vector<int>c = s.selfDividingNumbers(n,m);
+
+    for(int i=0; i<c.size(); i++){
+        cout<<c[i]<<"   ";
+    }
+
+    return 0;
+}
