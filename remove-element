@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        
+        sort(nums.begin(), nums.end());
+        
+        int count=0;
+        
+        for(int i=0; i<nums.size(); i++){
+            
+            if(val!=nums[i]){
+                nums[count]=nums[i];
+                count++;                
+            }
+        }
+        
+        return count;
+    }
+};
+
+int main(){
+
+    int n,val;
+    cin>>n>>val;
+
+    vector<int>v;
+
+    for(int i = 0; i<n; i++){
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<" ";
+    }
+
+    Solution s;
+
+    int x = s.removeElement(v,val);
+
+    cout<<endl;
+    
+    for(int i=0; i<x; i++){
+        cout<<v[i]<<" ";
+    }
+
+    return 0;
+}
