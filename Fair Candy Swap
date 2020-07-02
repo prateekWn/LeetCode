@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> fairCandySwap(vector<int>& A, vector<int>& B) {
+        
+        vector<int> ans;
+        set<int>R;
+        int s1 = 0, s2=0, sum=0;
+        
+        for(int i=0;i<A.size();i++){
+            s1 +=A[i];
+        }
+        
+        for(int i=0;i<B.size();i++){
+            s2 +=B[i];
+            R.insert(B[i]);
+        }
+            
+        sum = (s2-s1)/2;
+        
+        for(int i=0;i<A.size();i++){
+            int x = A[i];
+               if(R.count(x+sum)){
+                    ans.push_back(x);
+                    ans.push_back(x+sum);
+                    return ans;
+                }
+            
+        }
+        
+        return ans;
+    }
+};
