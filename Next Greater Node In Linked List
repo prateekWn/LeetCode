@@ -1,0 +1,42 @@
+class Solution {
+public:
+    vector<int> nextLargerNodes(ListNode* head) {
+        
+        vector<int>ans;
+        ListNode*curr = head;
+        
+        ListNode*N = curr->next;
+        
+        while(curr!=NULL){
+            
+            
+            if(curr->next!=NULL){
+                N = curr->next;        
+            }
+            else{
+                ans.push_back(0);
+                break;
+            }
+            
+                
+                while(N!=NULL){
+                
+                    if(curr->val<N->val){
+
+                        ans.push_back(N->val);
+                         break;
+                    }
+                    else if(N->next==NULL){
+                        ans.push_back(0);
+                    }
+
+                    N = N->next;
+                }
+            
+            curr = curr->next;
+            
+        }
+        
+        return ans;
+    }
+};
