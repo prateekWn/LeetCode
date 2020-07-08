@@ -1,0 +1,41 @@
+class Solution{
+public:
+    
+    bool checkPossibility(vector<int>& nums){
+        
+        int n = nums.size();
+        
+        bool tag = false;
+        
+        for(int i=1; i<n; i++){
+            
+            if(nums[i-1]>nums[i]){
+                
+                if(tag)
+                    return false;
+                
+                if(i==1){
+                    
+                    nums[i-1] = nums[i] - 1;
+                    tag = true;
+                }
+                else{
+                    
+                    if(nums[i-2]>nums[i] || nums[i-1] == nums[i-2] || i == n-1 ){
+                        nums[i] = nums[i-1];
+                    }
+                    else{
+                        nums[i-1] = nums[i-2];
+                    }
+                    
+                    tag = true;
+                }
+
+            }
+        }
+        
+        return true;
+        
+    }
+    
+};
