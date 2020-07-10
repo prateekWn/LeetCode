@@ -1,0 +1,64 @@
+class Solution {
+public:
+    bool isMonotonic(vector<int>& A) {
+            
+        bool in =true,  dec = true;
+        
+            for(int i = 0; i<A.size()-1; i++)
+            {
+            
+                if(A[i]>A[i+1])            
+                    in = false;
+                
+                if(A[i]<A[i+1])
+                    dec = false;
+                
+            }
+            
+        return in || dec;
+        
+    }
+};
+
+
+
+
+
+
+
+
+
+// class Solution {
+// public:
+//     bool isMonotonic(vector<int>& A) {
+        
+//         if(A[0]>=A[1]){
+            
+//             for(int i=0; i<A.size()-1; i++){
+                
+//                 if(A[i]>=A[i+1]){
+//                     continue;
+//                 }
+//                 else{
+//                     return false;
+//                 }
+//             }
+            
+//             return true;
+//         }
+//         else{
+            
+//             for(int i=0; i<A.size()-1; i++){
+                
+//                 if(A[i]<=A[i+1]){
+//                     continue;
+//                 }
+//                 else{
+//                     return false;
+//                 }
+//             }
+            
+//             return true;
+//         }
+//     }
+// };
