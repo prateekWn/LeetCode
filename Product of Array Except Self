@@ -1,0 +1,79 @@
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        
+        int prod = 1 , exc = 1, count=0;
+        
+        vector<int>v(nums.size(),0);
+        
+        for(auto it:nums){
+            
+            if(it==0){
+                count++;
+            }
+            
+        }
+        
+        if(count>1){
+            return v;
+        }
+        else{
+            
+        for(int i=0;i<nums.size();i++){
+            prod = prod*nums[i];
+            
+            if(nums[i]!=0){
+                exc = exc*nums[i];
+            }
+        }
+        
+        for(int i=0; i<nums.size(); i++){
+            
+            if(nums[i]!=0){
+                v[i] = prod/nums[i];    
+            }
+            else{
+                v[i]=exc;
+            }
+            
+        }
+        }
+        
+        return v;
+    }
+};
+
+
+
+
+
+//the below code only work for non-zero and negative numbers
+
+// class Solution {
+// public:
+//     vector<int> productExceptSelf(vector<int>& nums) {
+        
+//         vector<int>v(nums.size());
+        
+//         for(int i=0; i<nums.size(); i++){
+            
+//             int x = 1;
+            
+//             for(int j=0; j<nums.size(); j++){
+                    
+//                 if(j==i){
+//                     continue;
+//                 }
+//                 else{
+//                     x = x*nums[j];
+//                 }
+                
+//             }
+            
+//             v[i] = x;
+            
+//         }
+        
+//         return v;
+//     }
+// };
