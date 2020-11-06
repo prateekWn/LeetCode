@@ -1,0 +1,48 @@
+class Solution {
+public:
+    string express(string sub, int i, int j){
+        string res = "";
+        
+        while(i>=0 && j<sub.size() && sub[i]==sub[j]){
+            i--;
+            j++;
+        }
+        
+        for(int k = i+1; k<j; k++){
+            res += sub[k];
+        }
+        
+        return res;
+    }
+    
+    string longestPalindrome(string s) {
+        
+        int n = s.size();
+        
+        if(n<=1){
+            return s;
+        }
+        
+        string result = "";
+        
+        for(int i=0; i<n; i++){
+            
+            string temp_res = express(s , i , i);
+            
+            if(result.size() < temp_res.size()){
+                result = temp_res;
+            }
+            
+            if(i+1<n){
+                
+                string temp_res_even = express(s, i , i+1);
+                
+                if(result.size()<temp_res_even.size()){
+                    result = temp_res_even;
+                }
+            }
+        }
+        
+        return result;
+    }
+};
